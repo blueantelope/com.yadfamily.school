@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="calendarDemoApp" id="top">
+  <head>
+    <title>AngularUI Calendar for AngularJS</title>
+
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="/bootstrap-css/css/bootstrap.css" />
+    <link rel="stylesheet" href="/fullcalendar/dist/fullcalendar.css">
+    <link rel="stylesheet" href="/calendarDemo.css" />
+
+    <script src="/jquery/dist/jquery.js"></script>
+
+    <script src="/angular/angular.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+    <script src="/moment/moment.js"></script>
+    <script src="/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="/fullcalendar/dist/gcal.js"></script>
+    <script src="/calendar.js"></script>
+    <script src="/calendarDemo.js"></script>
+
+    <script src="/angular-fullscreen.js"></script>
+	  <script src="/app.js"></script>
+  </head>
+  <body data-spy="scroll">
+    <button ng-click="goFullscreen()">Enable/Disable Document Fullscreen</button>
+    <div role="main" fullscreen>
+      <div class="container">
+        <section id="directives-calendar" ng-controller="CalendarCtrl">
+
+          <div class="span8">
+            <tabset>
+            <tab select="renderCalender('myCalendar1');">
+            <tab-heading>
+              <i class="glyphicon glyphicon-bell"></i> 日 历 表
+            </tab-heading>
+            <div class="alert-success calAlert" ng-show="alertMessage != undefined && alertMessage != ''">
+              <h4>{{alertMessage}}</h4>
+            </div>
+            <div class="btn-toolbar">
+              <div class="btn-group">
+                <button class="btn btn-success" ng-click="changeView('agendaDay', 'myCalendar1')">天</button>
+                <button class="btn btn-success" ng-click="changeView('agendaWeek', 'myCalendar1')">周</butoon>
+                <button class="btn btn-success" ng-click="changeView('month', 'myCalendar1')">月</button>
+              </div>
+            </div>
+            <div class="calendar" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
+            </tab>
+            </tabset>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
+
